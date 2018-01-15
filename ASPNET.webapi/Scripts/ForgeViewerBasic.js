@@ -9,15 +9,19 @@ function launchViewer(urn) {
         getAccessToken: getAccessToken
     };
     var documentId = 'urn:' + urn;
-    var config3d = { extensions: ['SmokeDetectorsExtension'] };
+    var config3d = {
+        extensions: ['SmokeDetectorsExtension','Autodesk.ADN.Viewing.Extension.Basic'] };
     Autodesk.Viewing.Initializer(options, function onInitialized() {
         viewerApp = new Autodesk.Viewing.ViewingApplication('forgeViewer');
         viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D, config3d);
         viewerApp.loadDocument(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
+        
     });
 }
 
 var viewer;
+
+
 
 function onDocumentLoadSuccess(doc) {
 
@@ -40,6 +44,7 @@ function onItemLoadSuccess(viewer, item) {
     //console.log('onItemLoadSuccess()!');
     //console.log(viewer);
     //console.log(item);
+    
 
     //console.log('Viewers are equal: ' + (viewer === viewerApp.getCurrentViewer()));
 }

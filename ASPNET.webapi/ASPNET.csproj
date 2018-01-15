@@ -130,7 +130,7 @@
     <Content Include="Scripts\bootstrap-select.js.map" />
     <Content Include="Content\bootstrap-select.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\ColorExtension.js" />
+    <Content Include="Scripts\Autodesk.ADN.Viewing.Extension.Basic.js" />
     <Content Include="Scripts\ForgeViewerBasic.js" />
     <Content Include="Scripts\i18n\defaults-ar_AR.js" />
     <Content Include="Scripts\i18n\defaults-ar_AR.min.js" />

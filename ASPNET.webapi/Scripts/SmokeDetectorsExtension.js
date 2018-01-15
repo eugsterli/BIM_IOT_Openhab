@@ -1,8 +1,10 @@
 ﻿Autodesk.Viewing.theExtensionManager.registerExtension('SmokeDetectorsExtension', SmokeDetectorsExtension);
 var detectors = [];
-var arraydb = new Array();
 
+var arraydb = new Array();
 refreshdatabase();
+
+
 
 function refreshdatabase() {
     var xmlHttp = null;
@@ -47,7 +49,7 @@ function refreshsensordata() {
         
          
     }
-
+    setTimeout(function () { refreshsensordata(); }, 3000); 
 }
 
 
@@ -69,6 +71,7 @@ SmokeDetectorsExtension.prototype.load = function () {
 
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
         console.log('Model loaded');
+        
     });
 
     viewer.addEventListener(Autodesk.Viewing.OBJECT_TREE_CREATED_EVENT, function () {
@@ -96,7 +99,11 @@ SmokeDetectorsExtension.prototype.load = function () {
         var content = document.createElement('div');
         var mypanel = new SimplePanel(viewer.container, 'iotpanel', 'IoT Detectors List', content, 20, 20);
         mypanel.setVisible(true);
+
+        
+        
     });
+    
 
     return true;
 };
@@ -184,6 +191,7 @@ function getAlldbIds(rootId, tree) {
     var list;
 
     for (var i = 0; i < allDBId.length; i++) {
+        
         if (tree.getNodeName(allDBId[i]).includes('RAUCH')) {
             //alert(tree.getNodeName(allDBId[i]));
             elementsNames.push(tree.getNodeName(allDBId[i]));

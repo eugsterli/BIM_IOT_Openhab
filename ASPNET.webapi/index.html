@@ -16,19 +16,18 @@
     <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css?v=v3.3" type="text/css">
     <script language="JavaScript" src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min.js"></script>
     <script language="JavaScript" src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js?v=v3.3"></script>
+    
     <!-- this project files -->
     <link href="Content/main.css" rel="stylesheet" />
     <script src="Scripts/ForgeTree.js"></script>
     <script src="Scripts/ForgeViewerBasic.js"></script>
     <script src="/Scripts/SmokeDetectorsExtension.js"></script>
-    <script src="/Scripts/ColorExtension.js"></script>
-
-   
+    <script src="/Scripts/Autodesk.ADN.Viewing.Extension.Basic.js"></script>
 
 </head>
 <body>
-    <input type="button" value="Refresh on" id="MyButton" onclick="refreshsensordata();">
-    <input type="button" value="Refresh off" id="MyButton" onclick="disablerefresh();">
+    <input type="button" value="Refresh once" id="MyButton" onclick="refreshsensordata();">
+    <input type="button" value="Start Coloring" id="MyButton" onclick="iFrequency+=1000; startLoop(); return false;">
     <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
